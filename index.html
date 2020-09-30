@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+  <title>Weather App</title>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <link href="css/styles.css" rel="stylesheet">
+
+</head>
+
+
+  <!-- <form class="" action="/" method="post"> -->
+  <!-- <label for="cityInput">cityName</label>
+    <input id="cityInput" type="text" name="cityName">
+    <button type="submit">GO</button>
+  </form> -->
+
+  <body class="text-center">
+    <form action="/" class="form-signin" method="POST">
+      <img class="mb-4" src="images/sun.png" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-bold">Check Weather</h1>
+      <input type="text" class="form-control middle" placeholder="Enter country name" required autocomplete="off">
+      <input id="cityInput" type="text" name="cityName" class="form-control middle" placeholder="Enter city name" required autocomplete="off">
+      <br>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit"><i class="fas fa-cloud-sun"></i> Get Weather</button>
+    </form>
+  </body>
+
+ <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</html>
