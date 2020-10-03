@@ -5,6 +5,7 @@ const https=require("https");
 const bodyParser=require("body-parser");
 const ejs = require("ejs");
 const app=express();
+require('dotenv').config();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
@@ -16,7 +17,7 @@ app.set('view engine', 'ejs');
 app.post("/",function(req,res){
 
   var query=req.body.cityName;
-  var apiKey="93e1626e8dac0d938388238e12760fed";
+  var apiKey=process.env.API_KEY;
 
   var url="https://api.openweathermap.org/data/2.5/weather?q="+query+"&appid="+ apiKey+"&units=metric";
   https.get(url,function(response){
@@ -33,11 +34,8 @@ app.post("/",function(req,res){
       const imageURL="http://openweathermap.org/img/wn/"+ icon+"@2x.png";
       const minTemp=weatherData.main.temp_min;
       const maxTemp=weatherData.main.temp_max;
-      // res.write("<p>The weather is currently "+ weatherDescription +"<p>");
-      // res.write("<img src="+imageURL+">");
-      // res.write("<h1>The temperature in "+query+" is "+ temp+" degrees Celcius</h1>");
-
-      res.render("content",{
+      
+      const result={
         weatherDescription:weatherDescription,
         temp:temp,
         icon:icon,
@@ -45,14 +43,12 @@ app.post("/",function(req,res){
         query:query,
         minTemp:minTemp,
         maxTemp:maxTemp
-      });
+      };
 
-
-        });
-
-
-      }else{
-res.sendFile(__dirname+"/failure.html");
+      res.render("content",result);
+  });
+  }else{
+  res.sendFile(__dirname+"/failure.html");
 }
   });
 });
